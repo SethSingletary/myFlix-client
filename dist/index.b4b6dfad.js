@@ -2924,7 +2924,10 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$98a3.prelude(module);
 
 try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _indexScss = require("./index.scss");
 const MyFlixApplication = ()=>{
@@ -2934,21 +2937,21 @@ const MyFlixApplication = ()=>{
             children: "Good morning"
         }, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 7,
+            lineNumber: 8,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 7
     }, undefined);
 };
 _c = MyFlixApplication;
 const container = document.querySelector("#root");
 const root = (0, _reactDom.createRoot)(container);
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("myFlixApplication", {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyFlixApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 15,
+    lineNumber: 16,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -2959,7 +2962,7 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom":"j6uA9","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kZIxq"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"jNyrA","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kZIxq"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("f0adc3f0d507fa63");
 
@@ -27123,7 +27126,37 @@ module.exports = require("7d63c33600f9508");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"lJZlQ":[function() {},{}],"kZIxq":[function(require,module,exports) {
+},{}],"lJZlQ":[function() {},{}],"jNyrA":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"kZIxq":[function(require,module,exports) {
 "use strict";
 var Refresh = require("a5151e87e66f6e9");
 function debounce(func, delay) {

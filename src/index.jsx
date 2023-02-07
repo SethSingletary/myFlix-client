@@ -1,3 +1,4 @@
+import React from 'react';
 import {createRoot} from 'react-dom';
 import "./index.scss";
 
@@ -12,4 +13,4 @@ const MyFlixApplication = () => {
 const container = document.querySelector("#root");
 const root = createRoot(container);
 
-root.render(<myFlixApplication/>);
+root.render(<MyFlixApplication/>);
