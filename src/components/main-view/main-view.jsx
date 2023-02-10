@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-    const [movies, setMovies] = useState([
-        {id: 1, title: "The Phantom Menace", genre: "A genre"},
-        {id: 2, title: "Attack of the Clones", genre: "A genre"},
-        {id: 3, title: "Revenge of the Sith", genre: "A genre"}
-    ]);
+    const [movies, setMovies] = useState([]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
+    useEffect(() => {
+        fetch()
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('movies from api: ', data)
+        });
+    }, []);
 
     if(selectedMovie){
         return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>);
