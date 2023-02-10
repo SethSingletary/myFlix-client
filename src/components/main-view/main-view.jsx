@@ -7,12 +7,18 @@ export const MainView = () => {
 
     const [selectedMovie, setSelectedMovie] = useState(null);
     useEffect(() => {
-        fetch()
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('movies from api: ', data)
-        });
-    }, []);
+        fetch("https://my-flix2.herokuapp.com/movies")
+          .then((response) => response.json())
+          .then((data) => {
+            const moviesFromApi = data.docs.map((doc) => {
+              return {
+                title: doc.title
+              };
+            });
+    
+            setMovies(moviesFromApi);
+          });
+      }, []);
 
     if(selectedMovie){
         return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>);
