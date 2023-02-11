@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import PropTypes from 'prop-types';
 
 export const MainView = () => {
     const [movies, setMovies] = useState([]);
@@ -10,12 +11,13 @@ export const MainView = () => {
         fetch("https://my-flix2.herokuapp.com/movies")
           .then((response) => response.json())
           .then((data) => {
-            const moviesFromApi = data.docs.map((doc) => {
+            const moviesFromApi = data.map((doc) => {
               return {
-                title: doc.title
+                id: doc._id,
+                title: doc.Title,
+                genre: doc.Genre
               };
             });
-    
             setMovies(moviesFromApi);
           });
       }, []);

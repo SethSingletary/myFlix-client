@@ -5682,9 +5682,11 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://my-flix2.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.docs.map((doc)=>{
+            const moviesFromApi = data.map((doc)=>{
                 return {
-                    title: doc.title
+                    id: doc._id,
+                    title: doc.Title,
+                    genre: doc.Genre
                 };
             });
             setMovies(moviesFromApi);
@@ -5695,14 +5697,14 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 24,
+        lineNumber: 25,
         columnNumber: 17
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 28,
+        lineNumber: 29,
         columnNumber: 16
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -5713,12 +5715,12 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 37,
+                lineNumber: 38,
                 columnNumber: 17
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 9
     }, undefined);
 };
