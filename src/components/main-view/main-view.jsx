@@ -11,16 +11,20 @@ export const MainView = () => {
         fetch("https://my-flix2.herokuapp.com/movies")
           .then((response) => response.json())
           .then((data) => {
+            const moviesFromApi = data;
+            /** 
             const moviesFromApi = data.map((doc) => {
               return {
                 id: doc._id,
                 title: doc.Title,
-                genre: doc.Genre
+                genre: doc.Genre,
               };
             });
+            */
             setMovies(moviesFromApi);
           });
       }, []);
+
 
     if(selectedMovie){
         return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>);
