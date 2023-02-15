@@ -7,11 +7,11 @@ import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = JSON.parse(localStorage.getItem("token"));
+    const storedToken = localStorage.getItem("token");
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, users] = useState(storedUser? storedUser: null);
+    const [user, setUser] = useState(storedUser? storedUser: null);
     const [token, setToken] = useState(storedToken? storedToken: null);
 
 
@@ -26,6 +26,7 @@ export const MainView = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          setMovies(data);
         });
     }, [token]);
 
@@ -75,7 +76,7 @@ export const MainView = () => {
         <div>
             {movies.map((movie) => (
                 <MovieCard
-                    key={movie.id}
+                    key={movie._id}
                     movie={movie}
                     onMovieClick={(newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);

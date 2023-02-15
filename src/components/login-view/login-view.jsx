@@ -1,5 +1,4 @@
-import React from "react"
-import { useState } from "react";
+import React, {useState} from "react";
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
@@ -8,8 +7,8 @@ export const LoginView = ({onLoggedIn}) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
         fetch("https://my-flix2.herokuapp.com/login",{
             method: "POST",
