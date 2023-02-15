@@ -13,13 +13,23 @@ export const LoginView = ({onLoggedIn}) => {
         };
         fetch("https://my-flix2.herokuapp.com/login",{
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(data)
-        }).then((response) => {
-            if(response.ok){
-                onLoggedIn(username);
+        }).then((response) => response.json())
+        .then((data) => {
+            console.log("Login Response: ", data);
+            if(data.user){
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", JSON.stringify(data.token));
+                onLoggedIn(data.user, data.token);
             } else{
-                alert("Login failed")
+                alert("No such user");
             }
+        })
+        .catch((e) => {
+            alert("Something went wrong");
         })
     };
     return(
