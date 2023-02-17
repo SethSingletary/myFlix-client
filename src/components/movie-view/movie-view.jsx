@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Col } from "react-bootstrap";
 
 export const MovieView = ({movie, onBackClick}) => {
-    
+
     return (
         <Col md={8}>
             <div>{movie.Title}</div>

@@ -4,7 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import PropTypes from 'prop-types';
 import { SignupView } from "../signup-view/signup-view";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -69,6 +69,7 @@ export const MainView = () => {
           ) : (
             <>
               {movies.map((movie) => (
+                <Col className="mb-5" key={movie._id} md={3}>
                 <MovieCard
                   key={movie._id}
                   movie={movie}
@@ -76,6 +77,7 @@ export const MainView = () => {
                     setSelectedMovie(newSelectedMovie);
                   }}
                 />
+                </Col>
               ))}
             </>
           )}
