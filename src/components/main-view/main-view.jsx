@@ -4,6 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import PropTypes from 'prop-types';
 import { SignupView } from "../signup-view/signup-view";
+import { Container, Row } from "react-bootstrap";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -50,40 +51,34 @@ export const MainView = () => {
       }, []);
       */
 
-    if(!user){
-      return( <><LoginView onLoggedIn={(user, token) => {
-        setUser(user); 
-        setToken(token);
-      }}/>
-      or 
-      <SignupView/>
-      </>)
-    }
-
-
-    if(selectedMovie){
-        return (<MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}/>);
-    }
-
-    if(movies.length === 0){
-        return <div>The list is empty!</div>;
-    }
-
-
-
-
-    return (
-        <div>
-            {movies.map((movie) => (
+      return(
+        <Row className="justfy-content-md-center">
+          {!user ? (
+            <Col md={5}>
+              <LoginView onLoggedIn={(user) => setUser(user)}/>
+              or
+              <SignupView/>
+            </Col>
+          ) : selectedMovie ? (
+            <MovieView
+              movie={selectedMovie}
+              onBackClick={() => setSelectedMovie(null)}
+            />
+          ) : movies.length === 0 ? (
+            <div>The list is empty!</div>
+          ) : (
+            <>
+              {movies.map((movie) => (
                 <MovieCard
-                    key={movie._id}
-                    movie={movie}
-                    onMovieClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-                    }}
-                    />
-            ))}
-            <button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</button>
-        </div>
-    );
-};
+                  key={movie._id}
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
+                    setSelectedMovie(newSelectedMovie);
+                  }}
+                />
+              ))}
+            </>
+          )}
+          </Row>
+          );
+        };

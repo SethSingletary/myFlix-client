@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const MovieView = ({movie, onBackClick}) => {
+    
     return (
-    <div>
-        <div>{movie.Title}</div>
-        <div>{movie.Genre}</div>
-        <button onClick={onBackClick}>Back</button>
-    </div>);
+        <Col md={8}>
+            <div>{movie.Title}</div>
+            <div>{movie.Genre}</div>
+            <button onClick={onBackClick}>Back</button>
+        </Col>
+    )
 }
 
 
