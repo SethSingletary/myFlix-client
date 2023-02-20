@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Col } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export const MovieView = ({movie, onBackClick}) => {
 
@@ -8,10 +9,13 @@ export const MovieView = ({movie, onBackClick}) => {
         <Col md={8}>
             <div>{movie.Title}</div>
             <div>{movie.Genre}</div>
-            <button onClick={onBackClick}>Back</button>
+            <Link to={'/'}>
+                <Button className="back-button">Back</Button>
+            </Link>
         </Col>
     )
 }
+//            <button onClick={onBackClick}>Back</button>
 
 
 //<div>{movie.director.name}</div>
