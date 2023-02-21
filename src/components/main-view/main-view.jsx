@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { SignupView } from "../signup-view/signup-view";
 import { Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { Button } from "bootstrap";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -88,13 +89,13 @@ export const MainView = () => {
                 path="/movies/:movieId"
                 element={
                   <>
-                    {user ? (
+                    {!user ? (
                       <Navigate to="/login" replace/>
                     ) : movies.length === 0 ? (
                       <Col>The list is empty!</Col>
                     ) : (
                       <Col md={8}>
-                        <MovieView movies={movies}/>
+                        <MovieView movie={selectedMovie}/>
                       </Col>
                     )}
                   </>
@@ -114,6 +115,7 @@ export const MainView = () => {
                           <Col className="mb-4" key={movie._id} md={3}>
                             <MovieCard 
                               movie={movie}
+                              onMovieClick={() => setSelectedMovie(movie)}
                             />
                           </Col>
                         ))}
