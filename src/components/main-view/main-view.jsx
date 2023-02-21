@@ -119,6 +119,7 @@ export const MainView = () => {
                             />
                           </Col>
                         ))}
+                        <Button onClick={setUser(null)}/>
                       </>
                     )}
                   </>
