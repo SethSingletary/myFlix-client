@@ -4,9 +4,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import PropTypes from 'prop-types';
 import { SignupView } from "../signup-view/signup-view";
-import { Container, Row, Col, Navbar } from "react-bootstrap";
+import { Container, Row, Col, Navbar, Button } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import { Button } from "bootstrap";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -56,9 +55,11 @@ export const MainView = () => {
       return(
         <BrowserRouter>
           <Row className="justfy-content-md-center">
-            <Navbar>
-              <Button onClick={() => setUser(null)}>Close</Button>
-            </Navbar>
+            {user &&
+              <Navbar>
+                <Button onClick={() => setUser(null)}>Logout</Button>
+              </Navbar>
+            }
             <Routes>
               <Route
                 path="/signup"
