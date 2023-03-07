@@ -34,9 +34,28 @@ const profileView = ({
         };
         try {
             const response = await fetch(
-                `https://my-flix2.herokuapp.com/user`
+                `https://my-flix2.herokuapp.com/users/${user.username}`,
+                {
+                    method: "PUT",
+                    body: JSON.stringify(userData),
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            const { success, message, data } = await response.json();
+            if (success) {
+                alert(message);
+                setUpdateUser(false);
+            } else {
+                console.error(message);
+                alert("Update failed");
+            }
+        } catch (error) {
+      console.error(error);
+    }
 
-            )
         }
     }
 }

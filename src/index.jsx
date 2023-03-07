@@ -1,4 +1,4 @@
-import React from 'react';
+import {React} from 'react';
 import { MainView } from './components/main-view/main-view.jsx';
 import { createRoot } from "react-dom/client"
 //import {createRoot} from 'react-dom';

@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { SignupView } from "../signup-view/signup-view";
 import { Container, Row, Col, Navbar, Button } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { ProfileView} from "../profile-view/profile-view";
+import { NavigationBar} from "../naviagation-bar/navigation-bar"
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -56,9 +58,7 @@ export const MainView = () => {
         <BrowserRouter>
           <Row className="justfy-content-md-center">
             {user &&
-              <Navbar>
-                <Button onClick={() => setUser(null)}>Logout</Button>
-              </Navbar>
+              <NavigationBar/>
             }
             <Routes>
               <Route
@@ -127,6 +127,20 @@ export const MainView = () => {
                         ))}
                       </>
                     )}
+                  </>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <>
+                  {!user ? (
+                    <Navigate to="/login" replace/>
+                  ) : (
+                    <>
+                      <ProfileView/>
+                    </>
+                  )}
                   </>
                 }
               />
