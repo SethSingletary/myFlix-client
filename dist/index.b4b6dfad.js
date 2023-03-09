@@ -143,8 +143,8 @@
     }
   }
 })({"1xC6H":[function(require,module,exports) {
-var Refresh = require("d4636a249586f601");
-var ErrorOverlay = require("b14cbfc89cd9d955");
+var Refresh = require("1d762c1c8b3845b9");
+var ErrorOverlay = require("18242ee13d9a27fc");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -163,11 +163,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"d4636a249586f601":"786KC","b14cbfc89cd9d955":"1dldy"}],"786KC":[function(require,module,exports) {
+},{"1d762c1c8b3845b9":"786KC","18242ee13d9a27fc":"1dldy"}],"786KC":[function(require,module,exports) {
 "use strict";
-module.exports = require("5af3276bcddd139c");
+module.exports = require("91e37f73dd8ce135");
 
-},{"5af3276bcddd139c":"hdge7"}],"hdge7":[function(require,module,exports) {
+},{"91e37f73dd8ce135":"hdge7"}],"hdge7":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -628,7 +628,7 @@ module.exports = require("5af3276bcddd139c");
 })();
 
 },{}],"1dldy":[function(require,module,exports) {
-var process = require("ff249f74017fb5af");
+var process = require("515edf806d2e0402");
 !function(e, t) {
     module.exports = t();
 }(window, function() {
@@ -2358,7 +2358,7 @@ var process = require("ff249f74017fb5af");
     ]);
 });
 
-},{"ff249f74017fb5af":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"515edf806d2e0402":"d5jf4"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2967,9 +2967,9 @@ $RefreshReg$(_c, "MyFlixApplication");
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./components/main-view/main-view.jsx":"4gflv","react-dom/client":"lOjBx","./index.scss":"lJZlQ","react-bootstrap":"3AD9A","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
-module.exports = require("f0adc3f0d507fa63");
+module.exports = require("763499bfba624a44");
 
-},{"f0adc3f0d507fa63":"48uCM"}],"48uCM":[function(require,module,exports) {
+},{"763499bfba624a44":"48uCM"}],"48uCM":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-dev-runtime.development.js
@@ -2981,7 +2981,7 @@ module.exports = require("f0adc3f0d507fa63");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("e4a934974fb28fc0");
+    var React = require("8c22a691eca5ef71");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -3800,11 +3800,11 @@ module.exports = require("f0adc3f0d507fa63");
     exports.jsxDEV = jsxDEV$1;
 })();
 
-},{"e4a934974fb28fc0":"21dqq"}],"21dqq":[function(require,module,exports) {
+},{"8c22a691eca5ef71":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
-module.exports = require("1407fa9e4dc42637");
+module.exports = require("1cdced73e1ec84be");
 
-},{"1407fa9e4dc42637":"6YvXz"}],"6YvXz":[function(require,module,exports) {
+},{"1cdced73e1ec84be":"6YvXz"}],"6YvXz":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -5696,12 +5696,20 @@ var _navigationBar = require("../naviagation-bar/navigation-bar");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUsername = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
+    const [username, setUsername] = (0, _react.useState)(storedUsername ? storedUsername : null);
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
+    const [user, setUser] = (0, _react.useState)({
+        username: "",
+        password: "",
+        email: "",
+        birthday: "",
+        favoriteMovies: []
+    });
+    const [filteredMovieList, setFilteredMovieList] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://my-flix2.herokuapp.com/movies", {
@@ -5715,34 +5723,28 @@ const MainView = ()=>{
     }, [
         token
     ]);
-    /** 
-    useEffect(() => {
-        fetch("https://my-flix2.herokuapp.com/movies")
-          .then((response) => response.json())
-          .then((data) => {
-            const moviesFromApi = data;
-            /** 
-            const moviesFromApi = data.map((doc) => {
-              return {
-                id: doc._id,
-                title: doc.Title,
-                genre: doc.Genre,
-              };
-            });
-            
-            setMovies(moviesFromApi);
-          });
-      }, []);
-      */ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-            className: "justfy-content-md-center",
-            children: [
-                user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {}, void 0, false, {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 61,
-                    columnNumber: 15
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+    function movieSearch(searchString) {
+        setFilteredMovieList(movies.filter((movie)=>movie.title.toLowerCase().includes(searchString)));
+    }
+    const clearCurrentUser = ()=>{
+        setUsername(null);
+        setToken(null);
+        localStorage.clear();
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+        children: [
+            username ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {
+                username: username,
+                onLoggedOut: clearCurrentUser,
+                onSearch: movieSearch
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 59,
+                columnNumber: 11
+            }, undefined) : "",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                className: "justfy-content-md-center",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/signup",
@@ -5756,7 +5758,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 64,
+                            lineNumber: 69,
                             columnNumber: 15
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5779,7 +5781,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 78,
+                            lineNumber: 83,
                             columnNumber: 15
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5799,7 +5801,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 94,
+                            lineNumber: 99,
                             columnNumber: 15
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5823,7 +5825,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 110,
+                            lineNumber: 115,
                             columnNumber: 15
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -5838,24 +5840,24 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 133,
+                            lineNumber: 138,
                             columnNumber: 15
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 63,
+                    lineNumber: 68,
                     columnNumber: 13
                 }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 59,
-            columnNumber: 11
-        }, undefined)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 67,
+                columnNumber: 11
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 58,
+        lineNumber: 57,
         columnNumber: 9
     }, undefined);
 }; /**
@@ -5888,7 +5890,7 @@ const MainView = ()=>{
               </>
             )}
             */ 
-_s(MainView, "ITI+7nrXwcnncruLQKDGZu7mcw8=");
+_s(MainView, "XXNxm6t0FBncmhbXXIBhQxGOUgk=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -5993,17 +5995,17 @@ $RefreshReg$(_c, "MovieCard");
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */ var ReactIs = require("31ea44bfe1fed824");
+ */ var ReactIs = require("39f556df9a58b9c7");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
-module.exports = require("70c8de9b99b71968")(ReactIs.isElement, throwOnDirectAccess);
+module.exports = require("6c1c17a4c4b116de")(ReactIs.isElement, throwOnDirectAccess);
 
-},{"31ea44bfe1fed824":"7EuwB","70c8de9b99b71968":"bBUgD"}],"7EuwB":[function(require,module,exports) {
+},{"39f556df9a58b9c7":"7EuwB","6c1c17a4c4b116de":"bBUgD"}],"7EuwB":[function(require,module,exports) {
 "use strict";
-module.exports = require("12bee7e7bfe5cc36");
+module.exports = require("a293625d599f4da0");
 
-},{"12bee7e7bfe5cc36":"5DsXl"}],"5DsXl":[function(require,module,exports) {
+},{"a293625d599f4da0":"5DsXl"}],"5DsXl":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -6167,11 +6169,11 @@ module.exports = require("12bee7e7bfe5cc36");
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
-var ReactIs = require("336a89b9e0a96de0");
-var assign = require("68968ea9f37926a7");
-var ReactPropTypesSecret = require("5b36b933a04c5351");
-var has = require("de9786108f261f23");
-var checkPropTypes = require("a879451ac3b2e74d");
+var ReactIs = require("cf0d433221fd4b2f");
+var assign = require("b416da951dee1a58");
+var ReactPropTypesSecret = require("63006fa55da0dde5");
+var has = require("314899098337cc84");
+var checkPropTypes = require("28e01fc17000e9fc");
 var printWarning = function() {};
 printWarning = function(text) {
     var message = "Warning: " + text;
@@ -6598,7 +6600,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"336a89b9e0a96de0":"7EuwB","68968ea9f37926a7":"7OXxh","5b36b933a04c5351":"jZTZJ","de9786108f261f23":"fqKuf","a879451ac3b2e74d":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
+},{"cf0d433221fd4b2f":"7EuwB","b416da951dee1a58":"7OXxh","63006fa55da0dde5":"jZTZJ","314899098337cc84":"fqKuf","28e01fc17000e9fc":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -6674,9 +6676,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
 var printWarning = function() {};
-var ReactPropTypesSecret = require("e903d15e36369e0b");
+var ReactPropTypesSecret = require("7bc245a41001ede3");
 var loggedTypeFailures = {};
-var has = require("7db9e5a8ca692174");
+var has = require("1c5844ab78aeda2b");
 printWarning = function(text) {
     var message = "Warning: " + text;
     if (typeof console !== "undefined") console.error(message);
@@ -6734,7 +6736,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"e903d15e36369e0b":"jZTZJ","7db9e5a8ca692174":"fqKuf"}],"3AD9A":[function(require,module,exports) {
+},{"7bc245a41001ede3":"jZTZJ","1c5844ab78aeda2b":"fqKuf"}],"3AD9A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
@@ -7655,9 +7657,9 @@ exports.default = ThemeProvider;
 
 },{"react":"21dqq","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6AEwr":[function(require,module,exports) {
 "use strict";
-module.exports = require("b2e5e1dd14d9d30f");
+module.exports = require("2aa4825ba777b63");
 
-},{"b2e5e1dd14d9d30f":"kujY4"}],"kujY4":[function(require,module,exports) {
+},{"2aa4825ba777b63":"kujY4"}],"kujY4":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -7669,7 +7671,7 @@ module.exports = require("b2e5e1dd14d9d30f");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("ae0c5817e3302b26");
+    var React = require("26a97eb814159c2f");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -8500,7 +8502,7 @@ module.exports = require("b2e5e1dd14d9d30f");
     exports.jsxs = jsxs;
 })();
 
-},{"ae0c5817e3302b26":"21dqq"}],"2p9OR":[function(require,module,exports) {
+},{"26a97eb814159c2f":"21dqq"}],"2p9OR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -9292,9 +9294,9 @@ function checkDCE() {
     // a false positive.
     throw new Error("^_^");
 }
-module.exports = require("ea210dc28f43acef");
+module.exports = require("a5c44bb5a9fc53d1");
 
-},{"ea210dc28f43acef":"3iA9v"}],"3iA9v":[function(require,module,exports) {
+},{"a5c44bb5a9fc53d1":"3iA9v"}],"3iA9v":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -9307,8 +9309,8 @@ module.exports = require("ea210dc28f43acef");
 (function() {
     "use strict";
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("adce4667755d4282");
-    var Scheduler = require("e806af6ca55d9bae");
+    var React = require("8af71396bbb0defd");
+    var Scheduler = require("3fffe06a66525503");
     var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     var suppressWarning = false;
     function setSuppressWarning(newSuppressWarning) {
@@ -30279,11 +30281,11 @@ module.exports = require("ea210dc28f43acef");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"adce4667755d4282":"21dqq","e806af6ca55d9bae":"juvHo"}],"juvHo":[function(require,module,exports) {
+},{"8af71396bbb0defd":"21dqq","3fffe06a66525503":"juvHo"}],"juvHo":[function(require,module,exports) {
 "use strict";
-module.exports = require("7d63c33600f9508");
+module.exports = require("2d23fb1d4e5bd414");
 
-},{"7d63c33600f9508":"RqdIf"}],"RqdIf":[function(require,module,exports) {
+},{"2d23fb1d4e5bd414":"RqdIf"}],"RqdIf":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -38513,7 +38515,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = all;
-var _createChainableTypeChecker = require("f7f2212131e420d");
+var _createChainableTypeChecker = require("28f891ace7aad16b");
 var _createChainableTypeChecker2 = _interopRequireDefault(_createChainableTypeChecker);
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -38536,7 +38538,7 @@ function all() {
 }
 module.exports = exports["default"];
 
-},{"f7f2212131e420d":"1m8lT"}],"1m8lT":[function(require,module,exports) {
+},{"28f891ace7aad16b":"1m8lT"}],"1m8lT":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -46029,7 +46031,7 @@ function getTargetMatch(matches, location) {
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
 "use strict";
-var Refresh = require("427490dda756f45f");
+var Refresh = require("c9677a2f6f937872");
 function debounce(func, delay) {
     {
         let timeout = undefined;
@@ -46160,7 +46162,7 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"427490dda756f45f":"786KC"}],"ggaUx":[function(require,module,exports) {
+},{"c9677a2f6f937872":"786KC"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47025,10 +47027,10 @@ _s(profileView, "WcPEl7IXNCl/svAWm46W35ZyHWc=");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-bootstrap":"3AD9A","./profile-icon.svg":"2IT8Q","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"2IT8Q":[function(require,module,exports) {
-module.exports = require("2adf31689c2aa97c").getBundleURL("byUka") + "profile-icon.8e038fc7.svg" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./profile-icon.svg":"2IT8Q","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2IT8Q":[function(require,module,exports) {
+module.exports = require("d36525084664a679").getBundleURL("byUka") + "profile-icon.8e038fc7.svg" + "?" + Date.now();
 
-},{"2adf31689c2aa97c":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"d36525084664a679":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -47071,113 +47073,177 @@ $parcel$ReactRefreshHelpers$e5ff.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
 var _reactRouterDom = require("react-router-dom");
-const NavigationBar = ({ user , onLoggedOut  })=>{
+const NavigationBar = ({ username , onLoggedOut , onSearch  })=>{
+    const handleSearch = (searchString)=>{
+        onSearch(searchString);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
-        bg: "light",
         expand: "lg",
+        className: "navbar",
+        variant: "dark",
+        style: {
+            backgroundColor: "#374140"
+        },
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
+            fluid: true,
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
-                    as: (0, _reactRouterDom.Link),
-                    to: "/",
-                    children: "myFlix App"
+                    children: "MyFlix App"
                 }, void 0, false, {
                     fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                    lineNumber: 8,
-                    columnNumber: 17
+                    lineNumber: 18,
+                    columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
                     "aria-controls": "basic-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                    lineNumber: 11,
-                    columnNumber: 17
+                    lineNumber: 19,
+                    columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
                     id: "basic-navbar-nav",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
-                        className: "me-auto",
-                        children: [
-                            !user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/login",
-                                        children: "Login"
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                            className: "",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                    as: (0, _reactRouterDom.Link),
+                                    to: "/",
+                                    children: "Home"
+                                }, void 0, false, {
+                                    fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                    lineNumber: 22,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                    onClick: onLoggedOut,
+                                    children: "Logout"
+                                }, void 0, false, {
+                                    fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                    lineNumber: 25,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                            className: "mx-auto",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
+                                className: "d-flex",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                                    id: "searchbar",
+                                    type: "search",
+                                    placeholder: "Search",
+                                    className: "",
+                                    "aria-label": "Search",
+                                    onChange: (event)=>handleSearch(event.target.value)
+                                }, void 0, false, {
+                                    fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                    lineNumber: 29,
+                                    columnNumber: 15
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                lineNumber: 28,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                            lineNumber: 27,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                            className: "align-items-center",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                    as: (0, _reactRouterDom.Link),
+                                    to: "/profile",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        children: username
                                     }, void 0, false, {
                                         fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                                        lineNumber: 16,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/signup",
-                                        children: "Signup"
-                                    }, void 0, false, {
-                                        fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                                        lineNumber: 19,
-                                        columnNumber: 33
+                                        lineNumber: 41,
+                                        columnNumber: 15
                                     }, undefined)
-                                ]
-                            }, void 0, true),
-                            user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/",
-                                        children: "Home"
-                                    }, void 0, false, {
+                                }, void 0, false, {
+                                    fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                    lineNumber: 40,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                    as: (0, _reactRouterDom.Link),
+                                    to: "/profile",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        width: "24",
+                                        height: "24",
+                                        fill: "currentColor",
+                                        className: "bi bi-person-circle",
+                                        viewBox: "0 0 16 16",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                d: "M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
+                                            }, void 0, false, {
+                                                fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                                lineNumber: 52,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                                                fillRule: "evenodd",
+                                                d: "M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                                            }, void 0, false, {
+                                                fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                                lineNumber: 53,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                                        lineNumber: 26,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: Profile,
-                                        to: "/profile",
-                                        children: "Profile"
-                                    }, void 0, false, {
-                                        fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                                        lineNumber: 29,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        onClick: onLoggedOut,
-                                        children: "Logout"
-                                    }, void 0, false, {
-                                        fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                                        lineNumber: 32,
-                                        columnNumber: 33
+                                        lineNumber: 44,
+                                        columnNumber: 15
                                     }, undefined)
-                                ]
-                            }, void 0, true)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                        lineNumber: 13,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
+                                }, void 0, false, {
+                                    fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/naviagation-bar/navigation-bar.jsx",
+                            lineNumber: 39,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
                     fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-                    lineNumber: 12,
-                    columnNumber: 17
+                    lineNumber: 20,
+                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-            lineNumber: 7,
-            columnNumber: 13
+            lineNumber: 17,
+            columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/naviagation-bar/navigation-bar.jsx",
-        lineNumber: 6,
-        columnNumber: 9
+        lineNumber: 11,
+        columnNumber: 5
     }, undefined);
 };
 _c = NavigationBar;
+exports.default = NavigationBar;
 var _c;
 $RefreshReg$(_c, "NavigationBar");
 
@@ -47186,9 +47252,9 @@ $RefreshReg$(_c, "NavigationBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-bootstrap/Form":"iBZ80","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lOjBx":[function(require,module,exports) {
 "use strict";
-var m = require("cdb924e1e74d3ec1");
+var m = require("68ec02bf1ff4a63f");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 exports.createRoot = function(c, o) {
     i.usingClientEntryPoint = true;
@@ -47207,6 +47273,6 @@ exports.hydrateRoot = function(c, h, o) {
     }
 };
 
-},{"cdb924e1e74d3ec1":"j6uA9"}],"lJZlQ":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"68ec02bf1ff4a63f":"j6uA9"}],"lJZlQ":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

@@ -10,13 +10,21 @@ import { ProfileView} from "../profile-view/profile-view";
 import { NavigationBar} from "../naviagation-bar/navigation-bar"
 
 export const MainView = () => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedUsername = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, setUser] = useState(storedUser? storedUser: null);
+    const [username, setUsername] = useState(storedUsername? storedUsername: null);
     const [token, setToken] = useState(storedToken? storedToken: null);
+    const [user, setUser] = useState({
+      username: "",
+      password: "",
+      email: "",
+      birthday: "",
+      favoriteMovies: [],
+    });
+    const [filteredMovieList, setFilteredMovieList] = useState([]);
 
 
     useEffect(() => {
@@ -34,32 +42,29 @@ export const MainView = () => {
         });
     }, [token]);
 
-/** 
-    useEffect(() => {
-        fetch("https://my-flix2.herokuapp.com/movies")
-          .then((response) => response.json())
-          .then((data) => {
-            const moviesFromApi = data;
-            /** 
-            const moviesFromApi = data.map((doc) => {
-              return {
-                id: doc._id,
-                title: doc.Title,
-                genre: doc.Genre,
-              };
-            });
-            
-            setMovies(moviesFromApi);
-          });
-      }, []);
-      */
+    function movieSearch(searchString) {
+      setFilteredMovieList(movies.filter((movie) => movie.title.toLowerCase().includes(searchString))
+      );
+    }
+
+    const clearCurrentUser = () => {
+      setUsername(null);
+      setToken(null);
+      localStorage.clear();
+    }
 
       return(
         <BrowserRouter>
+        {username ? (
+          <NavigationBar
+            username={username}
+            onLoggedOut={clearCurrentUser}
+            onSearch={movieSearch}
+          />
+        ) : (
+          ""
+        )}
           <Row className="justfy-content-md-center">
-            {user &&
-              <NavigationBar/>
-            }
             <Routes>
               <Route
                 path="/signup"
