@@ -14,7 +14,7 @@ export const NavigationBar = ({ user, onLoggedOut}) => {
                         {!user && (
                             <>
                                 <Nav.Link as={Link} to="/login">
-                                    Login
+                                    Login 
                                 </Nav.Link>
                                 <Nav.Link as={Link} to="/signup">
                                     Signup
