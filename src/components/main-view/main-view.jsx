@@ -4,6 +4,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { SignupView } from "../signup-view/signup-view";
 import { Col, Row } from "react-bootstrap";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
 
@@ -40,6 +41,83 @@ export const MainView = () => {
     }
 */
     return (
+      <BrowserRouter>
+        <Row className="justify-content-md-center">
+          <Routes>
+            <Route
+              path="/signup"
+              element={
+                <>
+                  {user ? (
+                    <Navigate to="/"/>
+                  ) : (
+                    <Col md={4}>
+                      <SignupView/>
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <>
+                  {user ? (
+                    <Navigate to="/"/>
+                  ) : (
+                    <Col md={4}>
+                      <LoginView onLoggedIn={(user) => setUser(user)}/>
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/movie/:movieId"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace/>
+                  ) : movies.length === 0 ? (
+                    <>
+                      This List is empty!
+                    </>
+                  ) : (
+                    <Col md={8}>
+                      <MovieView movie={selectedMovie}/>
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                {!user ? (
+                  <Navigate to="/login" replace/>
+                ) : movies.length === 0 ? (
+                  <>
+                    This List is empty!
+                  </>
+                ) : (
+                  <>
+                    {movies.map((movie) => (
+                      <Col md={8} key={movie._id}>
+                        <MovieCard movie={movie} onMovieClick={() => setSeletedMovie(movie)}/>
+                      </Col>
+                    ))}
+                  </>
+                )}
+                </>
+              }
+            />
+
+          </Routes>
+
+        </Row>
+      </BrowserRouter>
+      /** 
       <Row className="justify-content-md-center">
         {!user ? (
           <>
@@ -64,6 +142,7 @@ export const MainView = () => {
           </>
         )}
       </Row>
+      /*
 
       /** 
         <div>
