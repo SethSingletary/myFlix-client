@@ -143,8 +143,8 @@
     }
   }
 })({"1xC6H":[function(require,module,exports) {
-var Refresh = require("d4636a249586f601");
-var ErrorOverlay = require("b14cbfc89cd9d955");
+var Refresh = require("1d762c1c8b3845b9");
+var ErrorOverlay = require("18242ee13d9a27fc");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -163,11 +163,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"d4636a249586f601":"786KC","b14cbfc89cd9d955":"1dldy"}],"786KC":[function(require,module,exports) {
+},{"1d762c1c8b3845b9":"786KC","18242ee13d9a27fc":"1dldy"}],"786KC":[function(require,module,exports) {
 "use strict";
-module.exports = require("5af3276bcddd139c");
+module.exports = require("91e37f73dd8ce135");
 
-},{"5af3276bcddd139c":"hdge7"}],"hdge7":[function(require,module,exports) {
+},{"91e37f73dd8ce135":"hdge7"}],"hdge7":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -628,7 +628,7 @@ module.exports = require("5af3276bcddd139c");
 })();
 
 },{}],"1dldy":[function(require,module,exports) {
-var process = require("ff249f74017fb5af");
+var process = require("515edf806d2e0402");
 !function(e, t) {
     module.exports = t();
 }(window, function() {
@@ -2358,7 +2358,7 @@ var process = require("ff249f74017fb5af");
     ]);
 });
 
-},{"ff249f74017fb5af":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"515edf806d2e0402":"d5jf4"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2959,11 +2959,11 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./index.scss":"lJZlQ","./components/main-view/main-view":"4gflv","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./index.scss":"lJZlQ","./components/main-view/main-view":"4gflv","react-bootstrap":"3AD9A","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
-module.exports = require("f0adc3f0d507fa63");
+module.exports = require("763499bfba624a44");
 
-},{"f0adc3f0d507fa63":"48uCM"}],"48uCM":[function(require,module,exports) {
+},{"763499bfba624a44":"48uCM"}],"48uCM":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-dev-runtime.development.js
@@ -2975,7 +2975,7 @@ module.exports = require("f0adc3f0d507fa63");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("e4a934974fb28fc0");
+    var React = require("8c22a691eca5ef71");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -3794,11 +3794,11 @@ module.exports = require("f0adc3f0d507fa63");
     exports.jsxDEV = jsxDEV$1;
 })();
 
-},{"e4a934974fb28fc0":"21dqq"}],"21dqq":[function(require,module,exports) {
+},{"8c22a691eca5ef71":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
-module.exports = require("1407fa9e4dc42637");
+module.exports = require("1cdced73e1ec84be");
 
-},{"1407fa9e4dc42637":"6YvXz"}],"6YvXz":[function(require,module,exports) {
+},{"1cdced73e1ec84be":"6YvXz"}],"6YvXz":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -5666,7 +5666,7 @@ module.exports = require("1407fa9e4dc42637");
 
 },{}],"lOjBx":[function(require,module,exports) {
 "use strict";
-var m = require("cdb924e1e74d3ec1");
+var m = require("68ec02bf1ff4a63f");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 exports.createRoot = function(c, o) {
     i.usingClientEntryPoint = true;
@@ -5685,7 +5685,7 @@ exports.hydrateRoot = function(c, h, o) {
     }
 };
 
-},{"cdb924e1e74d3ec1":"j6uA9"}],"j6uA9":[function(require,module,exports) {
+},{"68ec02bf1ff4a63f":"j6uA9"}],"j6uA9":[function(require,module,exports) {
 "use strict";
 function checkDCE() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") return;
@@ -5699,9 +5699,9 @@ function checkDCE() {
     // a false positive.
     throw new Error("^_^");
 }
-module.exports = require("ea210dc28f43acef");
+module.exports = require("a5c44bb5a9fc53d1");
 
-},{"ea210dc28f43acef":"3iA9v"}],"3iA9v":[function(require,module,exports) {
+},{"a5c44bb5a9fc53d1":"3iA9v"}],"3iA9v":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -5714,8 +5714,8 @@ module.exports = require("ea210dc28f43acef");
 (function() {
     "use strict";
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("adce4667755d4282");
-    var Scheduler = require("e806af6ca55d9bae");
+    var React = require("8af71396bbb0defd");
+    var Scheduler = require("3fffe06a66525503");
     var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     var suppressWarning = false;
     function setSuppressWarning(newSuppressWarning) {
@@ -26686,11 +26686,11 @@ module.exports = require("ea210dc28f43acef");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"adce4667755d4282":"21dqq","e806af6ca55d9bae":"juvHo"}],"juvHo":[function(require,module,exports) {
+},{"8af71396bbb0defd":"21dqq","3fffe06a66525503":"juvHo"}],"juvHo":[function(require,module,exports) {
 "use strict";
-module.exports = require("7d63c33600f9508");
+module.exports = require("2d23fb1d4e5bd414");
 
-},{"7d63c33600f9508":"RqdIf"}],"RqdIf":[function(require,module,exports) {
+},{"2d23fb1d4e5bd414":"RqdIf"}],"RqdIf":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -27300,7 +27300,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","react-router-dom":"9xmpe"}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../signup-view/signup-view":"4OGiN","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28337,9 +28337,9 @@ exports.default = ThemeProvider;
 
 },{"react":"21dqq","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6AEwr":[function(require,module,exports) {
 "use strict";
-module.exports = require("b2e5e1dd14d9d30f");
+module.exports = require("2aa4825ba777b63");
 
-},{"b2e5e1dd14d9d30f":"kujY4"}],"kujY4":[function(require,module,exports) {
+},{"2aa4825ba777b63":"kujY4"}],"kujY4":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -28351,7 +28351,7 @@ module.exports = require("b2e5e1dd14d9d30f");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("ae0c5817e3302b26");
+    var React = require("26a97eb814159c2f");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -29182,7 +29182,7 @@ module.exports = require("b2e5e1dd14d9d30f");
     exports.jsxs = jsxs;
 })();
 
-},{"ae0c5817e3302b26":"21dqq"}],"2p9OR":[function(require,module,exports) {
+},{"26a97eb814159c2f":"21dqq"}],"2p9OR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -29966,17 +29966,17 @@ exports.default = Transition;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */ var ReactIs = require("31ea44bfe1fed824");
+ */ var ReactIs = require("39f556df9a58b9c7");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
-module.exports = require("70c8de9b99b71968")(ReactIs.isElement, throwOnDirectAccess);
+module.exports = require("6c1c17a4c4b116de")(ReactIs.isElement, throwOnDirectAccess);
 
-},{"31ea44bfe1fed824":"7EuwB","70c8de9b99b71968":"bBUgD"}],"7EuwB":[function(require,module,exports) {
+},{"39f556df9a58b9c7":"7EuwB","6c1c17a4c4b116de":"bBUgD"}],"7EuwB":[function(require,module,exports) {
 "use strict";
-module.exports = require("12bee7e7bfe5cc36");
+module.exports = require("a293625d599f4da0");
 
-},{"12bee7e7bfe5cc36":"5DsXl"}],"5DsXl":[function(require,module,exports) {
+},{"a293625d599f4da0":"5DsXl"}],"5DsXl":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -30140,11 +30140,11 @@ module.exports = require("12bee7e7bfe5cc36");
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
-var ReactIs = require("336a89b9e0a96de0");
-var assign = require("68968ea9f37926a7");
-var ReactPropTypesSecret = require("5b36b933a04c5351");
-var has = require("de9786108f261f23");
-var checkPropTypes = require("a879451ac3b2e74d");
+var ReactIs = require("cf0d433221fd4b2f");
+var assign = require("b416da951dee1a58");
+var ReactPropTypesSecret = require("63006fa55da0dde5");
+var has = require("314899098337cc84");
+var checkPropTypes = require("28e01fc17000e9fc");
 var printWarning = function() {};
 printWarning = function(text) {
     var message = "Warning: " + text;
@@ -30571,7 +30571,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"336a89b9e0a96de0":"7EuwB","68968ea9f37926a7":"7OXxh","5b36b933a04c5351":"jZTZJ","de9786108f261f23":"fqKuf","a879451ac3b2e74d":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
+},{"cf0d433221fd4b2f":"7EuwB","b416da951dee1a58":"7OXxh","63006fa55da0dde5":"jZTZJ","314899098337cc84":"fqKuf","28e01fc17000e9fc":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -30647,9 +30647,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
 var printWarning = function() {};
-var ReactPropTypesSecret = require("e903d15e36369e0b");
+var ReactPropTypesSecret = require("7bc245a41001ede3");
 var loggedTypeFailures = {};
-var has = require("7db9e5a8ca692174");
+var has = require("1c5844ab78aeda2b");
 printWarning = function(text) {
     var message = "Warning: " + text;
     if (typeof console !== "undefined") console.error(message);
@@ -30707,7 +30707,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"e903d15e36369e0b":"jZTZJ","7db9e5a8ca692174":"fqKuf"}],"cepoZ":[function(require,module,exports) {
+},{"7bc245a41001ede3":"jZTZJ","1c5844ab78aeda2b":"fqKuf"}],"cepoZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -38483,7 +38483,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = all;
-var _createChainableTypeChecker = require("f7f2212131e420d");
+var _createChainableTypeChecker = require("28f891ace7aad16b");
 var _createChainableTypeChecker2 = _interopRequireDefault(_createChainableTypeChecker);
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -38506,7 +38506,7 @@ function all() {
 }
 module.exports = exports["default"];
 
-},{"f7f2212131e420d":"1m8lT"}],"1m8lT":[function(require,module,exports) {
+},{"28f891ace7aad16b":"1m8lT"}],"1m8lT":[function(require,module,exports) {
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -41011,7 +41011,7 @@ exports.default = Tooltip;
 
 },{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./helpers":"gotcT","./getInitialPopperStyles":"c8j3Q","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
 "use strict";
-var Refresh = require("427490dda756f45f");
+var Refresh = require("c9677a2f6f937872");
 function debounce(func, delay) {
     {
         let timeout = undefined;
@@ -41142,7 +41142,7 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"427490dda756f45f":"786KC"}],"bwuIu":[function(require,module,exports) {
+},{"c9677a2f6f937872":"786KC"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41163,7 +41163,7 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 8,
-                    columnNumber: 21
+                    columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Link), {
                     to: `/movie/${encodeURIComponent(movie._id)}`,
@@ -41174,23 +41174,23 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 10,
-                        columnNumber: 25
+                        columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 9,
-                    columnNumber: 21
+                    columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
             lineNumber: 7,
-            columnNumber: 17
+            columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 6,
-        columnNumber: 13
+        columnNumber: 9
     }, undefined);
 //Without link you can see cards, but can't click into detailed view. I can't seem to find why yet. Must research
 };
@@ -41203,7 +41203,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"ggaUx":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41255,7 +41255,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41427,7 +41427,7 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.8.1
  *
