@@ -8,7 +8,7 @@ export const MovieCard = ({movie, onMovieClick}) =>{
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Link to={`/movie/${encodeURIComponent(movie.id)}`}>
-                    <Button variant="link" onClick={onMovieClick}>Open</Button>
+                    <Button onClick={onMovieClick}>Open</Button>
                 </Link>
 
             </Card.Body>
