@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 export const MainView = () => {
 
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSeletedMovie] = useState(null);
+    const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export const MainView = () => {
                     </>
                   ) : (
                     <Col md={8}>
-                      <MovieView movie={selectedMovie}/>
+                      <MovieView movie={selectedMovie} />
                     </Col>
                   )}
                 </>
@@ -103,8 +103,8 @@ export const MainView = () => {
                 ) : (
                   <>
                     {movies.map((movie) => (
-                      <Col md={8} key={movie._id}>
-                        <MovieCard movie={movie} onMovieClick={() => setSeletedMovie(movie)}/>
+                      <Col md={8} key={movie.id}>
+                        <MovieCard movie={movie} onMovieClick={() => setSelectedMovie(movie)}/>
                       </Col>
                     ))}
                   </>

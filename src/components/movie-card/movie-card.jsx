@@ -1,12 +1,13 @@
-import { Button } from "react-bootstrap";
-import { Card, Link } from "react-bootstrap";
+import React from "react"
+import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
 
 export const MovieCard = ({movie, onMovieClick}) =>{
     return(
         <Card>
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
-                <Link to={`/movie/${encodeURIComponent(movie._id)}`}>
+                <Link to={`/movie/${encodeURIComponent(movie.id)}`}>
                     <Button variant="link" onClick={onMovieClick}>Open</Button>
                 </Link>
 
