@@ -10,7 +10,13 @@ export const MainView = () => {
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({
+      username: "",
+      password: "",
+      email: "",
+      birthday: "",
+      favoriteMovies: []
+    });
 
   useEffect(() => {
     fetch("https://my-flix2.herokuapp.com/movies")
