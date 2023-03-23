@@ -5,18 +5,24 @@ import { MovieView } from "../movie-view/movie-view";
 import { SignupView } from "../signup-view/signup-view";
 import { Col, Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [username, setUser] = useState("");
+
+    const user = localStorage.getItem("Username");
+    /*
     const [user, setUser] = useState({
-      username: "",
-      password: "",
-      email: "",
+      username: localStorage.getItem("Username"),
+      password: localStorage.getItem("Password"),
+      email: localStorage.getItem("Email"),
       birthday: "",
       favoriteMovies: []
     });
+    **/
 
   useEffect(() => {
     fetch("https://my-flix2.herokuapp.com/movies")
@@ -115,6 +121,18 @@ export const MainView = () => {
                     ))}
                   </>
                 )}
+                </>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace/>
+                  ) : (
+                    <ProfileView/>
+                  )}
                 </>
               }
             />

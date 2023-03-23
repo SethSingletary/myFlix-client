@@ -24,6 +24,10 @@ export const SignupView = () => {
             body: JSON.stringify(data),
         }).then((response) => {
             if(response.ok){
+                localStorage.setItem('Username', data.Username);
+                localStorage.setItem('Password', data.Password);
+                localStorage.setItem('Email', data.Email);
+                localStorage.setItem('Birthday', data.Birthday);
                 alert("Signup Succesful");
                 window.location.reload();
             } else {
