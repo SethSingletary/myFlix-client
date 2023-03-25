@@ -19,17 +19,19 @@ export const LoginView = ({onLoggedIn}) => {
             },
             body: JSON.stringify(data),
         }).then((response) => {
-            if(response.ok){
-                localStorage.setItem('Username', response.body.Username);
+            if(response.ok) {
+
+                localStorage.setItem('Username', response.json());
                 localStorage.setItem('Password', response.Password);
                 localStorage.setItem('Email', response.Email);
                 localStorage.setItem('Birthday', response.Birthday);
                 onLoggedIn(username);
+                
             } else {
                 alert("Login Failed!")
             }
         }).then((data) => {
-            //localStorage.setItem('Username', data.username);
+            //localStorage.setItem('Username', data);
             //localStorage.setItem('Password', data.password);
             //localStorage.setItem('Email', data.email);
             //localStorage.setItem('Birthday', data.birthday);
