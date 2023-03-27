@@ -21,10 +21,11 @@ export const LoginView = ({onLoggedIn}) => {
         }).then((response) => {
             if(response.ok) {
 
-                localStorage.setItem('Username', response.json());
+                localStorage.setItem('Username', response.User);
                 localStorage.setItem('Password', response.Password);
                 localStorage.setItem('Email', response.Email);
                 localStorage.setItem('Birthday', response.Birthday);
+
                 onLoggedIn(username);
                 
             } else {
