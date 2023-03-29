@@ -16,6 +16,7 @@ export const SignupView = () => {
             Email: email,
             Birthday: birthday,
         };
+        console.log(data);
         fetch("https://my-flix2.herokuapp.com/users", {
             method: "POST",
             headers: {
@@ -39,7 +40,7 @@ export const SignupView = () => {
     };
 
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
