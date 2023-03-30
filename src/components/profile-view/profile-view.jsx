@@ -12,13 +12,16 @@ export const ProfileView = ({}) => {
     const orignialEmail = localStorage.getItem('Email');
     const orignialBirthday = localStorage.getItem('Birthday');
 
+    console.log(orignialUsername);
     console.log(username);
-    console.log(password);
-    console.log(email);
-    console.log(birthday);
+    //console.log(password);
+    //console.log(email);
+    //console.log(birthday);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        console.log(orignialUsername);
         
         const data = {
             Username: username,
@@ -28,9 +31,12 @@ export const ProfileView = ({}) => {
         }
 
         fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`, {
+
+            credentials: "omit",
             method: "PUT",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: 'Bearer Token'
             },
             body: JSON.stringify(data),
         }).then((response) => {
@@ -48,7 +54,7 @@ export const ProfileView = ({}) => {
     }
 
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>{orignialUsername}:</Form.Label>
                 <Form.Control
