@@ -32,11 +32,11 @@ export const ProfileView = ({}) => {
 
         fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`, {
 
-            credentials: "omit",
+            //credentials: "omit",
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: 'Bearer Token'
+                Authorization: `Bearer {token}`
             },
             body: JSON.stringify(data),
         }).then((response) => {
@@ -45,10 +45,10 @@ export const ProfileView = ({}) => {
                 localStorage.setItem('Password', data.Password);
                 localStorage.setItem('Email', data.Email);
                 localStorage.setItem('Birthday', data.Birthday);
-                alert("Signup Succesful");
+                alert("Update Succesful");
                 window.location.reload();
             } else {
-                alert("Signup Failed!")
+                alert("Update Failed!")
             }
         })
     }

@@ -8,7 +8,7 @@ let favoriteMovies = [];
 
 
 export const MovieView = ({movie}) => {
-    favoriteMovies.push(movie);
+  console.log(movie.id);
 
     const [username, setUsername] = useState(localStorage.getItem('Username'));
     const [password, setPassword] = useState(localStorage.getItem('Password'));
@@ -16,17 +16,20 @@ export const MovieView = ({movie}) => {
     const [birthday, setBirthday] = useState(localStorage.getItem('Birthday'));
 
     const addFavorite = async => {
+
+        localStorage.setItem("FavoriteMovies", movie);
         
         const data = {
             Username: username,
             Password: password,
             Email: email,
             Birthday: birthday,
-            FavoriteMovies: favoriteMovies,
+            FavoriteMovies: movie.Title
+            
         }
 
-        fetch(`https://my-flix2.herokuapp.com/users/${username}`, {
-            method: "PUT",
+        fetch(`https://my-flix2.herokuapp.com/users/${username}/${movie.id}`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -34,9 +37,8 @@ export const MovieView = ({movie}) => {
         }).then((response) => {
             if(response.ok){
                 alert("Added to favorites");
-                window.location.reload();
             } else {
-                alert("Task failed")
+                alert("Failed to add to favorites")
             }
         })
     }

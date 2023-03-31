@@ -46250,30 +46250,29 @@ var _s = $RefreshSig$();
 let favoriteMovies = [];
 const MovieView = ({ movie  })=>{
     _s();
-    favoriteMovies.push(movie);
+    console.log(movie.id);
     const [username, setUsername] = (0, _react.useState)(localStorage.getItem("Username"));
     const [password, setPassword] = (0, _react.useState)(localStorage.getItem("Password"));
     const [email, setEmail] = (0, _react.useState)(localStorage.getItem("Email"));
     const [birthday, setBirthday] = (0, _react.useState)(localStorage.getItem("Birthday"));
     const addFavorite = (async)=>{
+        localStorage.setItem("FavoriteMovies", movie);
         const data = {
             Username: username,
             Password: password,
             Email: email,
             Birthday: birthday,
-            FavoriteMovies: favoriteMovies
+            FavoriteMovies: movie.Title
         };
-        fetch(`https://my-flix2.herokuapp.com/users/${username}`, {
-            method: "PUT",
+        fetch(`https://my-flix2.herokuapp.com/users/${username}/${movie.id}`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         }).then((response)=>{
-            if (response.ok) {
-                alert("Added to favorites");
-                window.location.reload();
-            } else alert("Task failed");
+            if (response.ok) alert("Added to favorites");
+            else alert("Failed to add to favorites");
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
@@ -46283,7 +46282,7 @@ const MovieView = ({ movie  })=>{
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 47,
+                    lineNumber: 49,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -46292,12 +46291,12 @@ const MovieView = ({ movie  })=>{
                         children: "Back"
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 49,
+                        lineNumber: 51,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 48,
+                    lineNumber: 50,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -46305,18 +46304,18 @@ const MovieView = ({ movie  })=>{
                     children: "Favorite"
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 51,
+                    lineNumber: 53,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 46,
+            lineNumber: 48,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-view/movie-view.jsx",
-        lineNumber: 45,
+        lineNumber: 47,
         columnNumber: 9
     }, undefined);
 };
@@ -46548,11 +46547,11 @@ const ProfileView = ({})=>{
             Birthday: birthday
         };
         fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`, {
-            credentials: "omit",
+            //credentials: "omit",
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer Token"
+                Authorization: `Bearer {token}`
             },
             body: JSON.stringify(data)
         }).then((response)=>{
@@ -46561,9 +46560,9 @@ const ProfileView = ({})=>{
                 localStorage.setItem("Password", data.Password);
                 localStorage.setItem("Email", data.Email);
                 localStorage.setItem("Birthday", data.Birthday);
-                alert("Signup Succesful");
+                alert("Update Succesful");
                 window.location.reload();
-            } else alert("Signup Failed!");
+            } else alert("Update Failed!");
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
