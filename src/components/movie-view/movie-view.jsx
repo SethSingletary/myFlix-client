@@ -8,7 +8,6 @@ let favoriteMovies = [];
 
 
 export const MovieView = ({movie}) => {
-  console.log(movie.id);
 
     const [username, setUsername] = useState(localStorage.getItem('Username'));
     const [password, setPassword] = useState(localStorage.getItem('Password'));
@@ -17,8 +16,8 @@ export const MovieView = ({movie}) => {
 
     const addFavorite = async => {
 
-        localStorage.setItem("FavoriteMovies", movie);
-        
+        favoriteMovies.push(movie.id)
+        localStorage.setItem("FavoriteMovies", movie.id);
         const data = {
             Username: username,
             Password: password,

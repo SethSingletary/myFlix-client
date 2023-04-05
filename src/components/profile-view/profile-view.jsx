@@ -6,6 +6,10 @@ export const ProfileView = ({}) => {
     const [password, setPassword] = useState(localStorage.getItem('Password'));
     const [email, setEmail] = useState(localStorage.getItem('Email'));
     const [birthday, setBirthday] = useState(localStorage.getItem('Birthday'));
+    const [movies, setMovies] = useState([]);
+    const [favoriteMovies, setFavoriteMovies] = useState([]);
+
+    
 
     const orignialUsername = localStorage.getItem('Username');
     const orignialPassword = localStorage.getItem('Password');
@@ -17,6 +21,10 @@ export const ProfileView = ({}) => {
     //console.log(password);
     //console.log(email);
     //console.log(birthday);
+
+    let test = fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`)
+
+    console.log(test);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,7 +44,7 @@ export const ProfileView = ({}) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer {token}`
+                //Authorization: `Bearer {token}`
             },
             body: JSON.stringify(data),
         }).then((response) => {
@@ -90,6 +98,9 @@ export const ProfileView = ({}) => {
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />
+            </Form.Group>
+            <Form.Group controlId="formFavoriteMovies">
+                <Form.Label>{favoriteMovies}:</Form.Label>
             </Form.Group>
             <Button type="submit">Submit</Button>
         </Form>
