@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
 import { Form, Button } from "react-bootstrap";
+import { FavoriteMovieView } from "../favorite-movie-view/favorite-movie-view";
+import { Col } from "react-bootstrap"
 
-export const ProfileView = ({}) => {
+export const ProfileView = () => {
     const [username, setUsername] = useState(localStorage.getItem('Username'));
     const [password, setPassword] = useState(localStorage.getItem('Password'));
     const [email, setEmail] = useState(localStorage.getItem('Email'));
     const [birthday, setBirthday] = useState(localStorage.getItem('Birthday'));
     const [movies, setMovies] = useState([]);
     const [favoriteMovies, setFavoriteMovies] = useState([]);
+    const [filteredMovies, setFilteredMovies] = useState([]);
 
     
 
@@ -16,12 +19,60 @@ export const ProfileView = ({}) => {
     const orignialEmail = localStorage.getItem('Email');
     const orignialBirthday = localStorage.getItem('Birthday');
 
-    console.log(orignialUsername);
-    console.log(username);
+    //console.log(orignialUsername);
+    //console.log(username);
     //console.log(password);
     //console.log(email);
     //console.log(birthday);
 
+    useEffect(() => {
+        fetch("https://my-flix2.herokuapp.com/movies")
+          .then((response) => response.json())
+          .then((data) => {
+            const moviesFromApi = data.map((doc) => {
+              return {
+                id: doc._id,
+                title: doc.Title,
+              };
+            });
+    
+            setMovies(moviesFromApi);
+          });
+          fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+
+            setFavoriteMovies(data.FavoriteMovies);
+          });
+
+
+
+      }, []);
+    useEffect(() => {
+
+        let i = 0;
+        let tempArray = [];
+        while(i < movies.length){
+          if(favoriteMovies.includes(movies[i].id)){  
+              tempArray.push(movies[i]); 
+              console.log(tempArray);  
+              console.log(movies[i]);
+              console.log("Filtered Movies:" + filteredMovies.length);
+              //setFilteredMovies(...filteredMovies, movies[i].title);
+              console.log("Filtered Movies:" + filteredMovies.length);
+              i++;
+            } else{
+              i++
+            }
+
+        }
+        setFilteredMovies(tempArray);
+
+    }, [movies, favoriteMovies])
+
+
+    console.log(favoriteMovies);
     let test = fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`)
 
     console.log(test);
@@ -61,6 +112,7 @@ export const ProfileView = ({}) => {
         })
     }
 
+    console.log(filteredMovies);
     return(
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
@@ -100,7 +152,13 @@ export const ProfileView = ({}) => {
                 />
             </Form.Group>
             <Form.Group controlId="formFavoriteMovies">
-                <Form.Label>{favoriteMovies}:</Form.Label>
+            <>
+                    {filteredMovies.map((movie) => (
+                      <Col md={8} key={movie.id}>
+                        <FavoriteMovieView movie={movie}/>
+                      </Col>
+                    ))}
+                  </>
             </Form.Group>
             <Button type="submit">Submit</Button>
         </Form>

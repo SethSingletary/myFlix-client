@@ -23,6 +23,7 @@ export const MainView = () => {
       favoriteMovies: []
     });
     **/
+   
 
   useEffect(() => {
     fetch("https://my-flix2.herokuapp.com/movies")
