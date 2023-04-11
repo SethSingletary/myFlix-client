@@ -8,7 +8,9 @@ export const LoginView = ({onLoggedIn}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const data = {
+        
+
+        let user = {
             Username: username,
             Password: password
         };
@@ -17,26 +19,28 @@ export const LoginView = ({onLoggedIn}) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(user),
         }).then((response) => {
             if(response.ok) {
-                console.log(response.json().user);
-                
-                localStorage.setItem('Username', response.Username);
-                localStorage.setItem('Password', response.Password);
-                localStorage.setItem('Email', response.Email);
-                localStorage.setItem('Birthday', response.Birthday);
 
-                onLoggedIn(username);
+                fetch(`https://my-flix2.herokuapp.com/users/${user.Username}`)
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log(data);
+            
+                  localStorage.setItem("Username", data.Username);
+                  localStorage.setItem("Password", data.Password);
+                  localStorage.setItem("Email", data.Email);
+                  localStorage.setItem("Birthday", data.Birthday);
+                  localStorage.setItem("FavoriteMovies", data.FavoriteMovies);
+                  localStorage.setItem("User", user);
+                });
+
+                onLoggedIn(user);
                 
             } else {
                 alert("Login Failed!")
             }
-        }).then((data) => {
-            //localStorage.setItem('Username', data);
-            //localStorage.setItem('Password', data.password);
-            //localStorage.setItem('Email', data.email);
-            //localStorage.setItem('Birthday', data.birthday);
         })
     }
 

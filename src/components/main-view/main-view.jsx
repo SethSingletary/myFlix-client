@@ -6,14 +6,36 @@ import { SignupView } from "../signup-view/signup-view";
 import { Col, Row } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ProfileView } from "../profile-view/profile-view";
+import Button from "react-bootstrap";
+
 
 export const MainView = () => {
+  const NavigationBar = () => {
+    return(
+        
+            <ul>
+                <li><a href="http://localhost:1234/">Home</a></li>
+                <li><a href="http://localhost:1234/profile">Profile</a></li>
+                <li><button onClick={handleLogout}>Logout</button></li>
+            </ul>
+        
+    )
+    function handleLogout(){
+        console.log("Working!")
+        localStorage.clear('Username');
+        window.location.reload();
+    }
+}
 
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [username, setUser] = useState("");
+    const [user, setUser] = useState(localStorage.getItem("User" ?? null));
 
-    const user = localStorage.getItem("Username");
+
+
+
+    //console.log(user);
+
     /*
     const [user, setUser] = useState({
       username: localStorage.getItem("Username"),
@@ -93,10 +115,12 @@ export const MainView = () => {
                     <Navigate to="/login" replace/>
                   ) : movies.length === 0 ? (
                     <>
+                      <NavigationBar/>
                       This List is empty!
                     </>
                   ) : (
                     <Col md={8}>
+                      <NavigationBar/>
                       <MovieView movie={selectedMovie} />
                     </Col>
                   )}
@@ -111,10 +135,14 @@ export const MainView = () => {
                   <Navigate to="/login" replace/>
                 ) : movies.length === 0 ? (
                   <>
+                    <NavigationBar/>
                     This List is empty!
                   </>
                 ) : (
                   <>
+                    <NavigationBar/>
+
+
                     {movies.map((movie) => (
                       <Col md={8} key={movie.id}>
                         <MovieCard movie={movie} onMovieClick={() => setSelectedMovie(movie)}/>
@@ -132,7 +160,7 @@ export const MainView = () => {
                   {!user ? (
                     <Navigate to="/login" replace/>
                   ) : (
-                    <ProfileView/>
+                    <ProfileView user={user}/>
                   )}
                 </>
               }

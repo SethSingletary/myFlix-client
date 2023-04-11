@@ -3,7 +3,10 @@ import { Form, Button } from "react-bootstrap";
 import { FavoriteMovieView } from "../favorite-movie-view/favorite-movie-view";
 import { Col } from "react-bootstrap"
 
-export const ProfileView = () => {
+export const ProfileView = (user) => {
+
+
+
     const [username, setUsername] = useState(localStorage.getItem('Username'));
     const [password, setPassword] = useState(localStorage.getItem('Password'));
     const [email, setEmail] = useState(localStorage.getItem('Email'));
@@ -43,6 +46,7 @@ export const ProfileView = () => {
           .then((data) => {
             console.log(data);
 
+            setUsername(data.Username)
             setFavoriteMovies(data.FavoriteMovies);
           });
 
@@ -114,7 +118,9 @@ export const ProfileView = () => {
 
     console.log(filteredMovies);
     return(
-        <Form onSubmit={handleSubmit}>
+        <>
+        <NavigationBar/>
+                <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>{orignialUsername}:</Form.Label>
                 <Form.Control
@@ -125,7 +131,7 @@ export const ProfileView = () => {
                 />
             </Form.Group>
             <Form.Group controlId="formPassword">
-                <Form.Label>{orignialPassword}:</Form.Label>
+                <Form.Label>Please note this is a hasked password. Only put something here if you want to change your password. {orignialPassword}:</Form.Label>
                 <Form.Control
                     type="password"
                     value={password}
@@ -162,6 +168,8 @@ export const ProfileView = () => {
             </Form.Group>
             <Button type="submit">Submit</Button>
         </Form>
+        </>
+
     )
 
     /*
