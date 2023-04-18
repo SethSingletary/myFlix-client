@@ -13,7 +13,7 @@ const MyFlixApplication = () => {
     );
 };
 
-const container = document.querySelector("#root");
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(<MyFlixApplication/>);

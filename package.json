@@ -2,8 +2,8 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.jsx",
   "scripts": {
+    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/SethSingletary/myFlix-client/issues"
   },
-  "homepage": "https://github.com/SethSingletary/myFlix-client#readme",
+  "homepage": "http://localhost:1234/",
   "dependencies": {
     "bootstrap": "^5.2.3",
     "prop-types": "^15.8.1",
@@ -23,11 +23,24 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-router": "^6.8.1",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3",
     "process": "^0.11.10"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

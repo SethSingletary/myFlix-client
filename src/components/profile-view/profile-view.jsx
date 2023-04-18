@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Form, Button } from "react-bootstrap";
 import { FavoriteMovieView } from "../favorite-movie-view/favorite-movie-view";
 import { Col } from "react-bootstrap"
+import NavigationBar from "../navigation-bar/navigation-bar"
 
 export const ProfileView = (user) => {
 
@@ -119,7 +120,7 @@ export const ProfileView = (user) => {
     console.log(filteredMovies);
     return(
         <>
-        <NavigationBar/>
+     
                 <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>{orignialUsername}:</Form.Label>
