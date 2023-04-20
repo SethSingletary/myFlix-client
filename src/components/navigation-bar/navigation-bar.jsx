@@ -7,8 +7,8 @@ export const NavigationBar = () => {
     return(
         
             <ul>
-                <li><a href="http://localhost:1234/">Home</a></li>
-                <li><a href="http://localhost:1234/profile">Profile</a></li>
+                <li><a href="https://clever-pixie-e8d67c.netlify.app/">Home</a></li>
+                <li><a href="https://clever-pixie-e8d67c.netlify.app/profile">Profile</a></li>
                 <li><Button onClick={handleLogout()}>Logout</Button></li>
             </ul>
         
