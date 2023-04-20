@@ -120,6 +120,7 @@ export const ProfileView = (user) => {
     console.log(filteredMovies);
     return(
         <>
+        <NavigationBar/>
      
                 <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">

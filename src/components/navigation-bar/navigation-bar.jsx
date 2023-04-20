@@ -15,7 +15,6 @@ export const NavigationBar = () => {
     )
 
     function handleLogout(){
-        
         console.log("Working!")
     }
 }

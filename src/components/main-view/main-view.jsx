@@ -15,21 +15,6 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(localStorage.getItem("User" ?? null));
-
-
-
-
-    //console.log(user);
-
-    /*
-    const [user, setUser] = useState({
-      username: localStorage.getItem("Username"),
-      password: localStorage.getItem("Password"),
-      email: localStorage.getItem("Email"),
-      birthday: "",
-      favoriteMovies: []
-    });
-    **/
    
 
   useEffect(() => {
@@ -126,8 +111,6 @@ export const MainView = () => {
                 ) : (
                   <>
                     <NavigationBar/>
-
-
                     {movies.map((movie) => (
                       <Col md={8} key={movie.id}>
                         <MovieCard movie={movie} onMovieClick={() => setSelectedMovie(movie)}/>
