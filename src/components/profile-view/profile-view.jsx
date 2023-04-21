@@ -112,7 +112,7 @@ export const ProfileView = (user) => {
                 localStorage.setItem('Email', data.Email);
                 localStorage.setItem('Birthday', data.Birthday);
                 alert("Update Succesful");
-                navigate('/profile');
+                navigate('/');
                 window.location.reload();
             } else {
                 alert("Update Failed!")
