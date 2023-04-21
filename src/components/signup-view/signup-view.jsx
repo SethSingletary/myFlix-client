@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 export const SignupView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,6 +34,7 @@ export const SignupView = () => {
                 localStorage.setItem('Birthday', data.Birthday);
 
                 alert("Signup Succesful");
+                navigate('/');
                 window.location.reload();
             } else {
                 alert("Signup Failed!")
