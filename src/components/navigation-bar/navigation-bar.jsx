@@ -12,7 +12,7 @@ export const NavigationBar = () => {
             </ul>
         
     )
-
+    
     function handleLogout(){
         console.log("Working!")
         localStorage.clear('Username');
