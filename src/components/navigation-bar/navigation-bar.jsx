@@ -1,8 +1,9 @@
 import { Button, Navbar } from "react-bootstrap";
 import { ProfileView } from "../profile-view/profile-view";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 
 export const NavigationBar = () => {
+    const navigate = useNavigate();
 
     return(
             <ul>
@@ -16,6 +17,7 @@ export const NavigationBar = () => {
     function handleLogout(){
         console.log("Working!");
         localStorage.clear('Username');
+        navigate('/')
         window.location.reload();
         
     }
