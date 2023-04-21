@@ -32,6 +32,7 @@ export const SignupView = () => {
                 localStorage.setItem('Password', data.Password);
                 localStorage.setItem('Email', data.Email);
                 localStorage.setItem('Birthday', data.Birthday);
+                localStorage.setItem('User', data);
 
                 alert("Signup Succesful");
                 navigate('/');
