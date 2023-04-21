@@ -1,6 +1,8 @@
 import { Card, Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 export const FavoriteMovieView = ({movie}) => {
+    const navigate = useNavigate();
 
     const username = localStorage.getItem("Username");
 
@@ -13,6 +15,7 @@ export const FavoriteMovieView = ({movie}) => {
         }).then((respone) => {
             if(respone.ok){
                 alert("Movie was deleted!");
+                navigate('/');
                 window.location.reload();
             } else{
                 alert("Failed to delete");
