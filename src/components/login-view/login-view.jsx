@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Button, Form } from "react-bootstrap";
+import { Navigate, useNavigate } from "react-router";
 
 export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,6 +47,7 @@ export const LoginView = ({onLoggedIn}) => {
     }
 
     return(
+        <>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
@@ -66,5 +69,10 @@ export const LoginView = ({onLoggedIn}) => {
             </Form.Group>
             <Button variant="primary" type="submit">Submit</Button>
         </Form>
+        <Button onClick={goToSignup}>Or Signup</Button>
+        </>
     )
+    function goToSignup() {
+        navigate('/signup');
+    }
 }
