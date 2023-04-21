@@ -84,6 +84,24 @@ export const ProfileView = (user) => {
 
     console.log(test);
 
+    function handleDelete(){
+        fetch(`https://my-flix2.herokuapp.com/users/${orignialUsername}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response) => {
+            if(response.ok){
+                alert("User Deleted!");
+                localStorage.clear('Username');
+                navigate('/');
+                window.location.reload();
+            }else{
+                alert("Delete Failed!");
+            }
+        })
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -139,7 +157,6 @@ export const ProfileView = (user) => {
                 <Form.Label>Please note this is a hasked password. Only put something here if you want to change your password. {orignialPassword}:</Form.Label>
                 <Form.Control
                     type="password"
-                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
@@ -173,6 +190,7 @@ export const ProfileView = (user) => {
             </Form.Group>
             <Button type="submit">Submit</Button>
         </Form>
+        <Button onClick={handleDelete}>Delete</Button>
         </>
 
     )
