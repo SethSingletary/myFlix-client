@@ -3,8 +3,10 @@ import { Form, Button } from "react-bootstrap";
 import { FavoriteMovieView } from "../favorite-movie-view/favorite-movie-view";
 import { Col } from "react-bootstrap";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { useNavigate } from "react-router";
 
 export const ProfileView = (user) => {
+    const navigate = useNavigate();
 
 
 
@@ -110,6 +112,7 @@ export const ProfileView = (user) => {
                 localStorage.setItem('Email', data.Email);
                 localStorage.setItem('Birthday', data.Birthday);
                 alert("Update Succesful");
+                navigate('/profile');
                 window.location.reload();
             } else {
                 alert("Update Failed!")
