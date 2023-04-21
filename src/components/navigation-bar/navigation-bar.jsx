@@ -14,9 +14,8 @@ export const NavigationBar = () => {
     )
     
     function handleLogout(){
-        console.log("Working!")
+        console.log("Working!");
         localStorage.clear('Username');
-        <Navigate to={'/'}></Navigate>
         window.location.reload();
         
     }
