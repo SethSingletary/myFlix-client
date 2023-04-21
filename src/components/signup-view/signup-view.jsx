@@ -9,6 +9,10 @@ export const SignupView = () => {
     const [birthday, setBirthday] = useState("");
     const navigate = useNavigate();
 
+    function navToLogin() {
+        navigate('/login');
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -44,6 +48,7 @@ export const SignupView = () => {
     };
 
     return(
+        <>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
@@ -83,6 +88,8 @@ export const SignupView = () => {
             </Form.Group>
             <Button type="submit">Submit</Button>
         </Form>
+        <Button onClick={navToLogin}>Or login</Button>
+        </>
     )
 
 }
