@@ -8,9 +8,7 @@ export const LoginView = ({onLoggedIn}) => {
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        
+        event.preventDefault();        
 
         let user = {
             Username: username,
@@ -67,9 +65,9 @@ export const LoginView = ({onLoggedIn}) => {
                     required
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">Submit</Button>
+            <Button variant="primary" type="submit" className="button">Submit</Button>
         </Form>
-        <Button onClick={goToSignup}>Or Signup</Button>
+        <Button onClick={goToSignup} className="button">Or Signup</Button>
         </>
     )
     function goToSignup() {

@@ -86,9 +86,9 @@ export const SignupView = () => {
                     required
                 />
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" className="button">Submit</Button>
         </Form>
-        <Button onClick={navToLogin}>Or login</Button>
+        <Button onClick={navToLogin} className="button">Or login</Button>
         </>
     )
 

@@ -6,10 +6,10 @@ export const NavigationBar = () => {
     const navigate = useNavigate();
 
     return(
-            <ul>
+            <ul className="navigationBar">
                 <li><Link to={'/'}>Home</Link></li>
                 <li><Link to={'/profile'}>Profile</Link></li>
-                <li><Button onClick={handleLogout}>Logout</Button></li>
+                <li><Button onClick={handleLogout} className="button">Logout</Button></li>
             </ul>
         
     )

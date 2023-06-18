@@ -8,8 +8,6 @@ import { useNavigate } from "react-router";
 export const ProfileView = (user) => {
     const navigate = useNavigate();
 
-
-
     const [username, setUsername] = useState(localStorage.getItem('Username'));
     const [password, setPassword] = useState(localStorage.getItem('Password'));
     const [email, setEmail] = useState(localStorage.getItem('Email'));
@@ -18,18 +16,10 @@ export const ProfileView = (user) => {
     const [favoriteMovies, setFavoriteMovies] = useState([]);
     const [filteredMovies, setFilteredMovies] = useState([]);
 
-    
-
     const orignialUsername = localStorage.getItem('Username');
     const orignialPassword = localStorage.getItem('Password');
     const orignialEmail = localStorage.getItem('Email');
     const orignialBirthday = localStorage.getItem('Birthday');
-
-    //console.log(orignialUsername);
-    //console.log(username);
-    //console.log(password);
-    //console.log(email);
-    //console.log(birthday);
 
     useEffect(() => {
         fetch("https://my-flix2.herokuapp.com/movies")
@@ -53,8 +43,6 @@ export const ProfileView = (user) => {
             setFavoriteMovies(data.FavoriteMovies);
           });
 
-
-
       }, []);
     useEffect(() => {
 
@@ -66,7 +54,6 @@ export const ProfileView = (user) => {
               console.log(tempArray);  
               console.log(movies[i]);
               console.log("Filtered Movies:" + filteredMovies.length);
-              //setFilteredMovies(...filteredMovies, movies[i].title);
               console.log("Filtered Movies:" + filteredMovies.length);
               i++;
             } else{
@@ -188,9 +175,9 @@ export const ProfileView = (user) => {
                     ))}
                   </>
             </Form.Group>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" className="button">Submit</Button>
         </Form>
-        <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={handleDelete} className="button">Delete</Button>
         </>
 
     )
