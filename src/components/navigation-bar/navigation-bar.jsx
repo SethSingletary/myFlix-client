@@ -7,7 +7,7 @@ export const NavigationBar = () => {
 
     return(
             <ul className="navigationBar">
-                <li><Button><Link to={'/'}>Home</Link></Button></li>
+                <li><Button onClick={handleHome} className="button"></Button></li>
                 <li><Button><Link to={'/profile'}>Profile</Link></Button></li>
                 <li><Button onClick={handleLogout} className="button">Logout</Button></li>
             </ul>
@@ -20,5 +20,10 @@ export const NavigationBar = () => {
         navigate('/')
         window.location.reload();
         
+    }
+    function handleHome(){
+        console.log("Home Working!");
+        navigate('/')
+        window.location.reload();
     }
 }
