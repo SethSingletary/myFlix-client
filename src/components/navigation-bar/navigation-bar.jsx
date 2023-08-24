@@ -7,8 +7,8 @@ export const NavigationBar = () => {
 
     return(
             <ul className="navigationBar">
-                <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/profile'}>Profile</Link></li>
+                <li><Button><Link to={'/'}>Home</Link></Button></li>
+                <li><Button><Link to={'/profile'}>Profile</Link></Button></li>
                 <li><Button onClick={handleLogout} className="button">Logout</Button></li>
             </ul>
         
