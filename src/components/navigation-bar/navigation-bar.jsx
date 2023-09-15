@@ -11,7 +11,6 @@ export const NavigationBar = () => {
                 <li><Button onClick={handleProfile} className="button">Profile</Button></li>
                 <li><Button onClick={handleLogout} className="button">Logout</Button></li>
             </ul>
-        
     )
     
     function handleLogout(){
